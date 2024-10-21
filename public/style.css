@@ -1,0 +1,547 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+html,
+body {
+	height: 100%;
+	line-height: 1;
+}
+
+/* ======================================== */
+
+[class*="__container"] {
+	max-width: 1057px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/* PC */
+@media (max-width: 1087px) {
+	[class*="__container"] {
+		max-width: 970px;
+	}
+}
+
+/* TABLET */
+@media (max-width: 991.98px) {
+	[class*="__container"] {
+		max-width: 750px;
+	}
+}
+
+/* MOBILE */
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		max-width: none;
+	}
+}
+
+/* MOBILE SMALL*/
+@media (max-width: 479.98px) {}
+
+/* ======================================== */
+
+body {
+	background-color: #222;
+	overflow: hidden;
+	max-height: 100vh;
+}
+
+video {
+	width: 100%;
+	height: 100%;
+}
+
+.video__button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	background-color: #000;
+	color: #fff;
+	padding: 10px 25px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	display: none;
+}
+
+.chat {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 200px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+}
+
+.chat__body {
+	height: 80%;
+	overflow-y: scroll;
+}
+
+.chat__body::-webkit-scrollbar {
+	display: none;
+}
+
+.chat__form {
+	height: 20%;
+	width: 100%;
+}
+
+.chat__input {
+	height: 60%;
+	width: 100%;
+	padding: 10px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	background-color: #000;
+	color: #fff;
+	outline: none;
+}
+
+.chat__button {
+	display: block;
+	height: 40%;
+	width: 100%;
+	background-color: teal;
+	color: #fff;
+	font-size: 12px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
+}
+
+.chat__message-1 {
+	color: mediumspringgreen;
+	padding: 5px;
+}
+
+.chat__message-2 {
+	color: yellow;
+	padding: 5px;
+}
+
+.socket-status {
+	position: absolute;
+	top: 0;
+	right: -51px;
+	width: 50px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: dimgray;
+	color: #fff;
+	margin-bottom: 5px;
+}
+
+.socket-status.active {
+	background-color: olivedrab;
+}
+
+.rtc-status {
+	position: absolute;
+	top: 20px;
+	right: -51px;
+	width: 50px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: dimgray;
+	color: #fff;
+	margin-bottom: 5px;
+}
+
+.rtc-status.active {
+	background-color: olivedrab;
+}
+
+.index-status {
+	position: absolute;
+	top: 40px;
+	right: -51px;
+	width: 50px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	margin-bottom: 5px;
+}
+
+.top-wall {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70%;
+	background-color: rgba(22, 22, 22, 1);
+	border-bottom: 1px solid #fff;
+	transition: top 2s ease-in-out, box-shadow 4s ease-in-out;
+	z-index: 2;
+}
+
+.bottom-wall {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 30%;
+	background-color: rgba(22, 22, 22, 1);
+	border-top: 1px solid #fff;
+	transition: bottom 2s ease-in-out, box-shadow 4s ease-in-out;
+	z-index: 2;
+}
+
+.top-wall.light {
+	box-shadow: inset 0px -20px 20px #FFCB00;
+}
+
+.bottom-wall.light {
+	box-shadow: inset 0px 20px 20px #FFCB00;
+}
+
+.top-wall.active {
+	top: -150%;
+}
+
+.bottom-wall.active {
+	bottom: -150%;
+}
+
+.top-wall.hidden {
+	display: none;
+}
+
+.bottom-wall.hidden {
+	display: none;
+}
+
+.notice {
+	display: none;
+	position: absolute;
+	z-index: 5;
+	left: 50%;
+	top: 30%;
+	transform: translateX(-50%);
+	padding: 15px 25px;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 24px;
+	line-height: 28px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.notice.active {
+	display: block;
+}
+
+.skip {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	padding: 5px 10px;
+	background-color: rgba(22, 22, 22, 1);
+	color: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+.skip:active {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.skip.hidden {
+	display: none;
+}
+
+.top-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.avatar {
+	width: 300px;
+	height: 300px;
+}
+
+.avatar img {
+	max-width: 100%;
+}
+
+.message {
+	min-width: 220px;
+	max-width: 400px;
+	min-height: 60px;
+	padding: 15px 25px;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 24px;
+	line-height: 28px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.bottom-content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.answer {
+	display: block;
+	min-width: 130px;
+	max-width: 400px;
+	min-height: 55px;
+	background-color: rgba(22, 22, 22, 1);
+	color: #fff;
+	border: 1px solid #fff;
+	box-shadow: 1px 3px 5px #fff;
+	padding: 15px 25px;
+	text-align: left;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	font-size: 20px;
+	line-height: 24px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.answer:hover {
+	background-color: rgba(255, 255, 255, 0.03);
+}
+
+.answer:active {
+	transform: translateY(2px);
+	box-shadow: 1px 1px 2px #fff;
+}
+
+
+
+
+.choose-gamepad {
+	position: absolute;
+	z-index: 200;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 80px;
+	width: 240px;
+	border: 5px solid #fff;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.left-gamepad-btn {
+	width: 100px;
+	padding: 5px 10px;
+	cursor: pointer;
+	text-transform: uppercase;
+	border: 5px solid #4B5A8D;
+}
+
+.right-gamepad-btn {
+	width: 100px;
+	padding: 5px 10px;
+	cursor: pointer;
+	text-transform: uppercase;
+	border: 5px solid #4B5A8D;
+}
+
+.left-gamepad-btn:hover,
+.right-gamepad-btn:hover {
+	background-color: #35B083;
+}
+
+.left-gamepad-btn:active,
+.right-gamepad-btn:active {
+	background-color: #44E7CB;
+}
+
+
+
+
+
+
+
+
+.paletteMain {
+	color: #00633E;
+	color: rgba(250, 250, 250, 1);
+	color: #C00B00;
+	color: rgba(22, 22, 22, 1);
+	color: #FFCB00;
+}
+
+.paletteFirework_1 {
+	color: #A66F7E;
+	color: #F2F2F2;
+	color: #F29B30;
+	color: #F26A1B;
+	color: #8C5042;
+}
+
+.paletteFirework_2 {
+	color: #0C172F;
+	color: #6D3263;
+	color: #DF6283;
+	color: #FFA793;
+	color: #FCFCA4;
+}
+
+.paletteFirework_3 {
+	color: #FC728A;
+	color: #30CEB1;
+	color: #44E7CB;
+	color: #4B5A8D;
+	color: #7B88BC;
+}
+
+.test1 {
+	color: #FEFF0D;
+	color: #E8D20C;
+	color: #FFCB00;
+	color: #E8A60C;
+	color: #FF9E0D;
+}
+
+.test2 {
+	color: #B39212;
+	color: #19FFE6;
+	color: #FFCB00;
+	color: #FF19EE;
+	color: #B309A6;
+}
+
+.test3 {
+	color: #CC4C0A;
+	color: #D6330B;
+	color: #C00B00;
+	color: #D60B4E;
+	color: #CC0AAB;
+}
+
+.test4 {
+	color: #00B06F;
+	color: #257D5D;
+	color: #00633E;
+	color: #35B083;
+	color: #00FCA0;
+}
+
+.test5 {
+	color: #00FFE1;
+	color: #9633FF;
+	color: #19FFE6;
+	color: #FF4F00;
+	color: #FFFF0D;
+}
+
+.test6 {
+	color: #FE8B66;
+	color: #E6695C;
+	color: #FC728A;
+	color: #E65CB8;
+	color: #F066FE;
+}
+
+/* ============ */
+.test7 {
+	color: #218F7B;
+	color: #124F44;
+	color: #30CEB1;
+	color: #32DBBC;
+	color: #2AB59B;
+}
+
+.test8 {
+	color: #279BDB;
+	color: #29D4E6;
+	color: #30CEB1;
+	color: #29E68E;
+	color: #27DB55;
+}
+
+.test9 {
+	color: #11826D;
+	color: #54FFE0;
+	color: #30CEB1;
+	color: #822704;
+	color: #CF5B30;
+}
+
+.test10 {
+	color: #1BCFAE;
+	color: #7F44CF;
+	color: #30CEB1;
+	color: #CF4C1B;
+	color: #CFCA25;
+}
+
+/* ================== */
+
+.chinese-new-year-1-hex {
+	color: #EBCA00;
+	color: #F5A600;
+	color: #DB1B00;
+	color: #F57B21;
+	color: #A0F5AD;
+}
+
+.New-years-1-hex {
+	color: #FA5B98;
+	color: #CE61E0;
+	color: #9959F5;
+	color: #4E5AE0;
+	color: #6FC8FF;
+}
+
+.New-year-2-hex {
+	color: #267339;
+	color: #62D97F;
+	color: #91F2AA;
+	color: #F2EEAC;
+	color: #8C5F27;
+}
